@@ -21,6 +21,23 @@ h1 {
   color: #555;
   margin-bottom: 30px;
 }
+a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
 
 h2 {
    color: #34495e;
