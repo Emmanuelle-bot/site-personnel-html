@@ -62,4 +62,18 @@ ul li {
   list-style: none;
   padding: 6px 0;
 }
+.btn-cv {
+  display: inline-block;
+  background-color: #1e88e5;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-cv:hover {
+  background-color: #1565c0;
+}
+
 
