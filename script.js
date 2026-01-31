@@ -50,13 +50,19 @@ class Particle {
     if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
   }
 
-  draw() {
-    ctx.fillStyle = "rgba(255,255,255,0.8)";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
+ draw() {
+  ctx.fillStyle = "rgba(255,255,255,0.7)";
+  ctx.beginPath();
+  ctx.arc(
+    this.x + mouse.x * 0.02,
+    this.y + mouse.y * 0.02,
+    this.size,
+    0,
+    Math.PI * 2
+  );
+  ctx.fill();
 }
+
 
 function initParticles() {
   particlesArray = [];
