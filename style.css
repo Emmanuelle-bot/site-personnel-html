@@ -1,16 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #eef2f5;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 .container {
   max-width: 800px;
-  margin: 60px auto;
+  margin: auto;
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 i {
   margin-right: 8px;
@@ -19,7 +20,7 @@ i {
 
 
 h1 {
- color: #2c3e50;
+ color: #1e88e5;
   margin-bottom: 5px;
 }
 .subtitle {
@@ -45,9 +46,10 @@ li {
 
 
 h2 {
-   color: #34495e;
+   color: #222;
   border-bottom: 2px solid #eee;
   padding-bottom: 5px;
+  margin-top: 30px;
 }
 p, li {
   color: #444;
