@@ -1,3 +1,10 @@
+const mouse = { x: 0, y: 0 };
+
+window.addEventListener("mousemove", e => {
+  mouse.x = e.clientX - window.innerWidth / 2;
+  mouse.y = e.clientY - window.innerHeight / 2;
+});
+
 // EFFET MACHINE À ÉCRIRE
 const text = "Développeuse Web Junior";
 const speed = 80;
