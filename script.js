@@ -114,6 +114,22 @@ function revealStory() {
 
 window.addEventListener("scroll", revealStory);
 revealStory();
+// ANIMATION BARRES DE COMPÉTENCES
+const skills = document.querySelectorAll(".progress");
+
+function animateSkills() {
+  skills.forEach(skill => {
+    const position = skill.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      skill.style.width = skill.dataset.level;
+    }
+  });
+}
+
+window.addEventListener("scroll", animateSkills);
+animateSkills();
 
 
 
