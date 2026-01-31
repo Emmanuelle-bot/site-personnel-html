@@ -98,5 +98,22 @@ document.querySelector(".intro-btn").addEventListener("click", function (e) {
     });
   }, 1000); // durée synchro avec le CSS
 });
+// ANIMATION STORY AU SCROLL
+const storyLines = document.querySelectorAll(".story-line");
+
+function revealStory() {
+  storyLines.forEach(line => {
+    const position = line.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      line.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealStory);
+revealStory();
+
 
 
