@@ -15,3 +15,8 @@ window.onload = () => {
   document.querySelector(".intro-subtitle").textContent = "";
   setTimeout(typeWriter, 600);
 };
+document.querySelector(".intro-btn").addEventListener("click", function () {
+  const intro = document.querySelector(".intro");
+  intro.classList.add("hide");
+});
+
