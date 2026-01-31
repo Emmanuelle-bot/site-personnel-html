@@ -189,4 +189,14 @@ a:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
+.intro {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.intro.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
 
