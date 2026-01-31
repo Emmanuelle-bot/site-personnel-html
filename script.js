@@ -76,4 +76,27 @@ function animateParticles() {
 }
 
 animateParticles();
+// BLOQUER LE SCROLL AU DÉMARRAGE
+document.body.classList.add("locked");
+
+document.querySelector(".intro-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const intro = document.querySelector(".intro");
+  const contenu = document.getElementById("contenu");
+
+  // Lancer l’animation cinématique
+  intro.classList.add("cinematic-out");
+
+  // Après l’animation, afficher le contenu
+  setTimeout(() => {
+    intro.style.display = "none";
+    document.body.classList.remove("locked");
+
+    contenu.scrollIntoView({
+      behavior: "smooth"
+    });
+  }, 1000); // durée synchro avec le CSS
+});
+
 
