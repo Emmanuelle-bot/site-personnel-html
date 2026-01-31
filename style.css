@@ -198,5 +198,18 @@ a:hover {
   transform: scale(0.95);
   pointer-events: none;
 }
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.intro > *:not(canvas) {
+  position: relative;
+  z-index: 1;
+}
 
 
