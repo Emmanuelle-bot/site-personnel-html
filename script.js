@@ -131,5 +131,19 @@ function animateSkills() {
 window.addEventListener("scroll", animateSkills);
 animateSkills();
 
+// DARK / LIGHT MODE
+const toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    toggle.textContent = "☀️";
+  } else {
+    toggle.textContent = "🌙";
+  }
+});
+
+
 
 
