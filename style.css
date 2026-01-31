@@ -190,7 +190,9 @@ a:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 .intro {
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
 }
 
 .intro.hide {
