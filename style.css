@@ -243,6 +243,33 @@ body.locked {
   opacity: 1;
   transform: translateY(0);
 }
+.skills {
+  margin-top: 40px;
+}
+
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill span {
+  font-weight: 600;
+}
+
+.bar {
+  background-color: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress {
+  height: 12px;
+  width: 0;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border-radius: 20px;
+  transition: width 1.5s ease;
+}
+
 
 
 
