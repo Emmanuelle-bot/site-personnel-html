@@ -1,3 +1,5 @@
+const parallaxItems = document.querySelectorAll(".intro [data-speed]");
+
 const mouse = { x: 0, y: 0 };
 
 window.addEventListener("mousemove", e => {
