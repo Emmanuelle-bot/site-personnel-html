@@ -10,6 +10,7 @@ body {
   padding: 40px 15px;
   color: #1f2937;
   transition: background 0.6s ease, color 0.6s ease;
+  padding-top: 80px;
 }
 
 .container {
@@ -522,6 +523,26 @@ body.dark .intro-photo img {
   width: 100%;
 }
 
+body.dark .navbar {
+  background: rgba(2,6,23,0.9);
+}
+
+body.dark .nav-logo {
+  color: #60a5fa;
+}
+
+body.dark .nav-links a {
+  color: #e5e7eb;
+}
+
+body.dark .nav-links a::after {
+  background: #60a5fa;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
 
 
 
