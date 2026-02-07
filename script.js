@@ -1,13 +1,21 @@
+// ===== PARALLAXE & SOURIS =====
 const parallaxItems = document.querySelectorAll(".intro [data-speed]");
-
 const mouse = { x: 0, y: 0 };
 
-window.addEventListener("mousemove", e => {
+document.addEventListener("mousemove", e => {
   mouse.x = e.clientX - window.innerWidth / 2;
   mouse.y = e.clientY - window.innerHeight / 2;
+
+  const x = (window.innerWidth / 2 - e.clientX) / 30;
+  const y = (window.innerHeight / 2 - e.clientY) / 30;
+
+  parallaxItems.forEach(item => {
+    const speed = item.dataset.speed || 1;
+    item.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+  });
 });
 
-// EFFET MACHINE À ÉCRIRE
+// ===== MACHINE À ÉCRIRE =====
 const text = "Développeuse Web Junior";
 const speed = 80;
 let index = 0;
@@ -21,14 +29,12 @@ function typeWriter() {
 }
 
 window.onload = () => {
-  document.querySelector(".intro-subtitle").textContent = "";
+  const subtitle = document.querySelector(".intro-subtitle");
+  subtitle.textContent = "";
   setTimeout(typeWriter, 600);
 };
-document.querySelector(".intro-btn").addEventListener("click", function () {
-  const intro = document.querySelector(".intro");
-  intro.classList.add("hide");
-});
-// PARTICULES ANIMÉES
+
+// ===== PARTICULES =====
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -59,19 +65,19 @@ class Particle {
     if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
   }
 
- draw() {
-  ctx.fillStyle = "rgba(255,255,255,0.7)";
-  ctx.beginPath();
-  ctx.arc(
-    this.x + mouse.x * 0.02,
-    this.y + mouse.y * 0.02,
-    this.size,
-    0,
-    Math.PI * 2
-  );
-  ctx.fill();
+  draw() {
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.beginPath();
+    ctx.arc(
+      this.x + mouse.x * 0.02,
+      this.y + mouse.y * 0.02,
+      this.size,
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  }
 }
-
 
 function initParticles() {
   particlesArray = [];
@@ -83,94 +89,64 @@ initParticles();
 
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(particle => {
-    particle.update();
-    particle.draw();
+  particlesArray.forEach(p => {
+    p.update();
+    p.draw();
   });
   requestAnimationFrame(animateParticles);
 }
-
 animateParticles();
-// BLOQUER LE SCROLL AU DÉMARRAGE
+
+// ===== INTRO CINÉMATIQUE =====
 document.body.classList.add("locked");
 
-document.querySelector(".intro-btn").addEventListener("click", function (e) {
+document.querySelector(".intro-btn").addEventListener("click", e => {
   e.preventDefault();
 
   const intro = document.querySelector(".intro");
   const contenu = document.getElementById("contenu");
 
-  // Lancer l’animation cinématique
   intro.classList.add("cinematic-out");
 
-  // Après l’animation, afficher le contenu
   setTimeout(() => {
-    intro.style.display = "none";
+    intro.classList.add("hide");
     document.body.classList.remove("locked");
-
-    contenu.scrollIntoView({
-      behavior: "smooth"
-    });
-  }, 1000); // durée synchro avec le CSS
+    contenu.scrollIntoView({ behavior: "smooth" });
+  }, 1000);
 });
-// ANIMATION STORY AU SCROLL
+
+// ===== STORY AU SCROLL =====
 const storyLines = document.querySelectorAll(".story-line");
 
 function revealStory() {
   storyLines.forEach(line => {
-    const position = line.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (position < screenHeight - 100) {
+    if (line.getBoundingClientRect().top < window.innerHeight - 100) {
       line.classList.add("visible");
     }
   });
 }
-
 window.addEventListener("scroll", revealStory);
 revealStory();
-// ANIMATION BARRES DE COMPÉTENCES
+
+// ===== SKILLS =====
 const skills = document.querySelectorAll(".progress");
 
 function animateSkills() {
   skills.forEach(skill => {
-    const position = skill.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (position < screenHeight - 100) {
+    if (skill.getBoundingClientRect().top < window.innerHeight - 100) {
       skill.style.width = skill.dataset.level;
     }
   });
 }
-
 window.addEventListener("scroll", animateSkills);
 animateSkills();
 
-// DARK / LIGHT MODE
+// ===== DARK MODE =====
 const toggle = document.getElementById("theme-toggle");
 
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    toggle.textContent = "☀️";
-  } else {
-    toggle.textContent = "🌙";
-  }
+  toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
-
-// PARALLAXE À LA SOURIS (INTRO)
-const parallaxItems = document.querySelectorAll(".intro [data-speed]");
-
-document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 30;
-  const y = (window.innerHeight / 2 - e.clientY) / 30;
-
-  parallaxItems.forEach(item => {
-    const speed = item.getAttribute("data-speed");
-    item.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-  });
-});
-
 
 
