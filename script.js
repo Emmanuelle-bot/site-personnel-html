@@ -148,5 +148,17 @@ toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
+// NAVBAR AU SCROLL (COMME LA VIDÉO)
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+    navbar.classList.remove("transparent");
+  } else {
+    navbar.classList.add("transparent");
+    navbar.classList.remove("scrolled");
+  }
+});
 
 
