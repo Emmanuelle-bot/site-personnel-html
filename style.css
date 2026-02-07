@@ -478,14 +478,29 @@ body.dark .intro-photo img {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 40px;
+  padding: 18px 40px;
   z-index: 9998;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease
+}
+/* ÉTAT TRANSPARENT (INTRO) */
+.navbar.transparent {
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar.transparent .nav-logo,
+.navbar.transparent .nav-links a {
+  color: white;
+}
+
+/* ÉTAT SOLIDE (SCROLL) */
+.navbar.scrolled {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .nav-logo {
@@ -532,6 +547,14 @@ body.dark .nav-logo {
 }
 
 body.dark .nav-links a {
+  color: #e5e7eb;
+}
+body.dark .navbar.scrolled {
+  background: rgba(2,6,23,0.9);
+}
+
+body.dark .navbar.scrolled .nav-logo,
+body.dark .navbar.scrolled .nav-links a {
   color: #e5e7eb;
 }
 
