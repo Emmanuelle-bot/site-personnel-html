@@ -573,6 +573,17 @@ body.dark .nav-links a::after {
   }
 }
 
+/* Animation entrée navbar */
+.navbar {
+  transform: translateY(-100%);
+  animation: slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
 
 
 
